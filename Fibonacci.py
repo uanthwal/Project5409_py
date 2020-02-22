@@ -10,7 +10,7 @@ number_list = []
 time_list = []
 with open("Fibonacci_Output.log", "a") as log_file:
     for x in range(len(lines)):
-        program_starts = time.time_ns()
+        start = time.time()
         print()
         print()
         print("Request ID: ", str(x))
@@ -33,6 +33,7 @@ with open("Fibonacci_Output.log", "a") as log_file:
 
         if n == 1:
             print(n1)
+            log_file.write(str(n1))
         else:
             while count < n:
                 log_file.write(str(n1)+" ")
@@ -42,12 +43,12 @@ with open("Fibonacci_Output.log", "a") as log_file:
                 n2 = nth
                 count += 1
 
-        now = time.time_ns()
+        end = time.time()
         print()
-        print("Time taken:  {0} nano seconds".format(now - program_starts))
+        print("Time Taken (s): " + str(end - start))
         log_file.write("\n")
-        log_file.write("Time taken:  {0} nano seconds".format(now - program_starts))
-        time_list.append(now - program_starts)
+        log_file.write("Time Taken (s): " + str(end - start))
+        time_list.append(end - start)
 
 
 plt.plot(number_list, time_list)
