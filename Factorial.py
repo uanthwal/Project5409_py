@@ -47,12 +47,12 @@ with open("Factorial_Output.log", "a") as log_file:
             print("Factorial of " + str(n) + " is: " + str(fact_val))
             log_file.write("Factorial of " + str(n) + " is: " + str(fact_val))
 
-        now = time.time_ns()
         end = time.time()
         log_file.write("\n")
-        print(f'Time Taken (s): {time.time() - start}')
-        log_file.write(f'Time Taken (s): {time.time() - start}')
-        time_list.append(time.time() - start)
+
+        print("Time Taken (s): "+ str(end - start))
+        log_file.write("Time Taken (s): " + str(end - start))
+        time_list.append(end - start)
 
 
 plt.plot(number_list, time_list)
