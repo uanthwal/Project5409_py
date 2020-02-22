@@ -1,3 +1,5 @@
+import time
+
 import matplotlib.pyplot as plt
 
 
@@ -17,7 +19,8 @@ number_list = []
 time_list = []
 with open("Factorial_Output.log", "a") as log_file:
     for x in range(len(lines)):
-        program_starts = time.time_ns()
+        # program_starts = time.time_ns()
+        start = time.time()
         print()
         print()
         print("Request ID: ", str(x))
@@ -42,11 +45,16 @@ with open("Factorial_Output.log", "a") as log_file:
             log_file.write("Factorial of " + str(n) + " is: " + str(fact_val))
 
         now = time.time_ns()
+        end = time.time()
         print()
-        print("Time taken:  {0} nano seconds".format(now - program_starts))
+        print("Time taken:  {0} nano seconds".format(end - start))
+        # print("Time taken:  {0} nano seconds".format(now - program_starts))
         log_file.write("\n")
-        log_file.write("Time taken:  {0} nano seconds".format(now - program_starts))
-        time_list.append(now - program_starts)
+        log_file.write("Time taken:  {0} nano seconds".format(end - start))
+        # log_file.write("Time taken:  {0} nano seconds".format(now - program_starts))
+        print(f"Runtime of the program is {(end - start)}")
+        # time_list.append(now - program_starts)
+        time_list.append(end - start)
 
 
 plt.plot(number_list, time_list)
