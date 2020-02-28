@@ -18,19 +18,13 @@ number_list = []
 time_list = []
 with open("Factorial_Output.log", "a") as log_file:
     for x in range(len(lines)):
-        # program_starts = time.time_ns()
-        # start = time.time()
-        # start = time.process_time()
         start = time.time()
         print()
-
         print()
         print("Request ID: ", str(x))
         print("N: ", lines[x])
-
         log_file.write("\n")
         log_file.write("\n")
-
         log_file.write("Request ID: "+str(x))
         log_file.write("\n")
         log_file.write("N: "+lines[x])
@@ -41,6 +35,7 @@ with open("Factorial_Output.log", "a") as log_file:
 
         if n == 0 or n == 1:
             print(1)
+            print("Factorial of " + str(n) + " is: " + str(1))
             log_file.write("Factorial of " + str(n) + " is: " + str(1))
         else:
             fact_val = factorial(n)
@@ -49,11 +44,14 @@ with open("Factorial_Output.log", "a") as log_file:
 
         end = time.time()
         log_file.write("\n")
-
-        print("Time Taken (s): "+ str(end - start))
+        print("Time Taken (s): " + str(end - start))
         log_file.write("Time Taken (s): " + str(end - start))
         time_list.append(end - start)
 
-
+plt.grid(True)
+plt.tight_layout()
+plt.title('Resource Usage')
+plt.xlabel('Number (N)', fontsize=18)
+plt.ylabel('Time taken (s)', fontsize=18)
 plt.plot(number_list, time_list)
 plt.show()
