@@ -1,7 +1,6 @@
 import time
 import matplotlib.pyplot as plt
 
-
 with open('input.txt') as f:
     lines = [line.rstrip() for line in f]
 
@@ -20,11 +19,11 @@ with open("Fibonacci_Output.log", "a") as log_file:
         log_file.write("\n")
         log_file.write("\n")
 
-        log_file.write("Request ID: "+str(x))
+        log_file.write("Request ID: " + str(x))
         log_file.write("\n")
-        log_file.write("N: "+lines[x])
+        log_file.write("N: " + lines[x])
         log_file.write("\n")
-        log_file.write("Fibonacci Series for number: "+lines[x])
+        log_file.write("Fibonacci Series for number: " + lines[x])
         log_file.write("\n")
         n = int(lines[x])
         number_list.append(n)
@@ -36,8 +35,8 @@ with open("Fibonacci_Output.log", "a") as log_file:
             log_file.write(str(n1))
         else:
             while count < n:
-                log_file.write(str(n1)+" ")
-                print(str(n1), end =" ")
+                log_file.write(str(n1) + " ")
+                print(str(n1), end=' ')
                 nth = n1 + n2
                 n1 = n2
                 n2 = nth
@@ -49,6 +48,7 @@ with open("Fibonacci_Output.log", "a") as log_file:
         log_file.write("\n")
         log_file.write("Time Taken (s): " + str(end - start))
         time_list.append(end - start)
+
 plt.figure(1)
 plt.grid(True)
 plt.tight_layout()
