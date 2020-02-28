@@ -50,6 +50,7 @@ with open("Fibonacci_Output.log", "a") as log_file:
         log_file.write("Time Taken (s): " + str(end - start))
         time_list.append(end - start)
 
+plt.figure(1)
 plt.grid(True)
 plt.tight_layout()
 plt.title('Resource Usage')
