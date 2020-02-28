@@ -4,11 +4,12 @@ import matplotlib.pyplot as plt
 with open('input.txt') as f:
     lines = [line.rstrip() for line in f]
 
-print(lines)
 number_list = []
 time_list = []
+
 with open("Fibonacci_Output.log", "a") as log_file:
     for x in range(len(lines)):
+        fib_list = []
         start = time.time()
         print()
         print()
@@ -31,24 +32,24 @@ with open("Fibonacci_Output.log", "a") as log_file:
         count = 0
 
         if n == 1:
-            print(n1)
+            fib_list.append(n1)
             log_file.write(str(n1))
         else:
             while count < n:
                 log_file.write(str(n1) + " ")
-                print(str(n1), end=' ')
+                fib_list.append(n1)
                 nth = n1 + n2
                 n1 = n2
                 n2 = nth
                 count += 1
 
         end = time.time()
+        print(fib_list)
         print()
         print("Time Taken (s): " + str(end - start))
         log_file.write("\n")
         log_file.write("Time Taken (s): " + str(end - start))
         time_list.append(end - start)
-
 plt.figure(1)
 plt.grid(True)
 plt.tight_layout()

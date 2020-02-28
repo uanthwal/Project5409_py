@@ -13,7 +13,6 @@ def factorial(n):
 with open('input.txt') as f:
     lines = [line.rstrip() for line in f]
 
-print(lines)
 number_list = []
 time_list = []
 with open("Factorial_Output.log", "a") as log_file:
@@ -48,7 +47,7 @@ with open("Factorial_Output.log", "a") as log_file:
         log_file.write("Time Taken (s): " + str(end - start))
         time_list.append(end - start)
 
-plt.figure(2)
+plt.figure(1)
 plt.grid(True)
 plt.tight_layout()
 plt.title('Resource Usage')
