@@ -37,7 +37,7 @@ with open("Fibonacci_Output.log", "a") as log_file:
         else:
             while count < n:
                 log_file.write(str(n1)+" ")
-                print(str(n1)+" ", sep=' ', end='')
+                print(str(n1), end =" ")
                 nth = n1 + n2
                 n1 = n2
                 n2 = nth
@@ -49,7 +49,6 @@ with open("Fibonacci_Output.log", "a") as log_file:
         log_file.write("\n")
         log_file.write("Time Taken (s): " + str(end - start))
         time_list.append(end - start)
-
 plt.figure(1)
 plt.grid(True)
 plt.tight_layout()
